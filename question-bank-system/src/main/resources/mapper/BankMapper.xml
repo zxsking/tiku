@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.questionbank.mapper.BankMapper">
+
+    <!-- 与公开题库列表一致的条件（避免注解 + 分页插件在部分环境下异常） -->
+    <sql id="PublicBanksWhere">
+        WHERE visibility = 'public' AND status = 'published'
+        <if test="categoryIds != null and categoryIds.size() > 0">
+            AND category_id IN
+            <foreach collection="categoryIds" item="cid" open="(" separator="," close=")">#{cid}</foreach>
+        </if>
+        <if test="keyword != null and keyword != ''">
+            AND (name LIKE CONCAT('%',#{keyword},'%') OR description LIKE CONCAT('%',#{keyword},'%'))
+        </if>
+    </sql>
+
+    <select id="countPublicBanksPage" resultType="long">
+        SELECT COUNT(*) FROM banks
+        <include refid="PublicBanksWhere"/>
+    </select>
+
+    <select id="selectPublicBanksPage" resultType="com.example.questionbank.entity.Bank">
+        SELECT * FROM banks
+        <include refid="PublicBanksWhere"/>
+        <choose>
+            <when test="sortBy == 'popular'">ORDER BY view_count DESC, id DESC</when>
+            <when test="sortBy == 'favorites'">ORDER BY favorite_count DESC, id DESC</when>
+            <otherwise>ORDER BY created_at DESC, id DESC</otherwise>
+        </choose>
+    </select>
+</mapper>

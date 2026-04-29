@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  background: #f5f7fa;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+// 工具类
+.text-primary { color: #409eff; }
+.text-success { color: #67c23a; }
+.text-warning { color: #e6a23c; }
+.text-danger { color: #f56c6c; }
+.text-secondary { color: #909399; }
+
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.ml-10 { margin-left: 10px; }
+.mr-10 { margin-right: 10px; }
+
+// Element Plus 覆盖
+.el-button {
+  border-radius: 8px;
+}
+
+.el-input__wrapper {
+  border-radius: 8px;
+}
+
+.el-select .el-input__wrapper {
+  border-radius: 8px;
+}
+
+.el-card {
+  border-radius: 12px;
+  border-color: #edf0f5;
+}
+
+.el-tag {
+  border-radius: 6px;
+}
+
+.el-pagination {
+  --el-pagination-button-bg-color: #fff;
+  
+  .el-pager li {
+    border-radius: 6px;
+  }
+}

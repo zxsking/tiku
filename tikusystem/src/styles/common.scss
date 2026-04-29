@@ -1,0 +1,330 @@
+// ── 公共变量 ──────────────────────────────────────────
+:root {
+  --primary: #409eff;
+  --success: #67c23a;
+  --warning: #e6a23c;
+  --danger: #f56c6c;
+  --border: #edf0f5;
+  --bg-light: #fafbfd;
+  --bg-lighter: #f7f9fc;
+  --text-primary: #303133;
+  --text-regular: #606266;
+  --text-secondary: #909399;
+  --text-placeholder: #b1b8c4;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+// ── 页面容器 ──────────────────────────────────────────
+.page-container {
+  padding: 4px 0;
+}
+
+// ── 主卡片 ────────────────────────────────────────────
+.main-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+
+  :deep(.el-card__header) {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-light);
+  }
+
+  :deep(.el-card__body) {
+    padding: 20px;
+  }
+}
+
+// ── 卡片头部 ──────────────────────────────────────────
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-dot {
+  width: 4px;
+  height: 18px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.header-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.total-tag {
+  border-radius: 20px;
+  :deep(.el-tag__content) { color: var(--text-secondary); }
+}
+
+// ── 按钮 ──────────────────────────────────────────────
+.create-btn {
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  background: linear-gradient(135deg, var(--primary), #2d87f0);
+  border: none;
+  box-shadow: 0 4px 12px rgba(64, 158, 255, 0.3);
+
+  &:hover {
+    opacity: 0.88;
+    box-shadow: 0 6px 16px rgba(64, 158, 255, 0.4);
+  }
+}
+
+// ── 筛选栏 ────────────────────────────────────────────
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  background: var(--bg-lighter);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+
+  .filter-search {
+    flex: 1;
+    max-width: 320px;
+
+    :deep(.el-input__wrapper) {
+      border-radius: var(--radius-sm);
+      background: #fff;
+    }
+  }
+
+  .filter-right {
+    display: flex;
+    gap: 10px;
+
+    :deep(.el-select .el-input__wrapper) {
+      border-radius: var(--radius-sm);
+      background: #fff;
+    }
+  }
+}
+
+// ── 分页 ──────────────────────────────────────────────
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+// ── 空状态 ────────────────────────────────────────────
+.empty-state {
+  padding: 60px 0;
+}
+
+// ── 卡片项通用样式 ────────────────────────────────────
+.item-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
+  }
+}
+
+// ── 表格样式 ──────────────────────────────────────────
+.data-table {
+  :deep(.el-table__header th) {
+    background: var(--bg-lighter);
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+  
+  :deep(.el-table__row) {
+    transition: background 0.15s;
+    
+    &:hover > td {
+      background: var(--bg-lighter) !important;
+    }
+  }
+}
+
+// ── 表单样式 ──────────────────────────────────────────
+.form-card {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  :deep(.el-card__header) {
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-light);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  :deep(.el-card__body) {
+    padding: 30px;
+  }
+
+  :deep(.el-form-item__label) {
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  :deep(.el-input__wrapper),
+  :deep(.el-textarea__inner) {
+    border-radius: var(--radius-sm);
+  }
+}
+
+// ── 统计卡片 ──────────────────────────────────────────
+.stat-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  :deep(.el-card__body) {
+    padding: 20px;
+  }
+}
+
+// ── 用户信息卡片 ──────────────────────────────────────
+.user-info-card {
+  text-align: center;
+  padding: 24px 0;
+  
+  .user-avatar {
+    margin-bottom: 16px;
+  }
+  
+  .user-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  
+  .user-email {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  
+  .user-stats {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    
+    .stat-item {
+      .stat-value {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      
+      .stat-label {
+        color: var(--text-secondary);
+        font-size: 12px;
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+// ── 页面标题 ──────────────────────────────────────────
+.page-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  &::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 4px;
+  }
+}
+
+// ── 操作按钮组 ────────────────────────────────────────
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  
+  .el-button {
+    border-radius: var(--radius-sm);
+  }
+}
+
+// ── 详情页布局 ────────────────────────────────────────
+.detail-layout {
+  .detail-main {
+    padding-right: 10px;
+  }
+  
+  .detail-sidebar {
+    padding-left: 10px;
+  }
+}
+
+// ── 消除 el-dropdown 触发器 focus 黑框 ────────────────
+.el-dropdown {
+  &:focus,
+  &:focus-visible,
+  & > *:focus,
+  & > *:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+// ── 信息列表 ──────────────────────────────────────────
+.info-list {
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    .info-label {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+    
+    .info-value {
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+}

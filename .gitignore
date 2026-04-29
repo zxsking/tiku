@@ -1,0 +1,51 @@
+# ============================
+# Java / Maven (question-bank-system)
+# ============================
+**/target/
+**/application.yml
+*.class
+*.jar
+*.war
+*.ear
+*.log
+hs_err_pid*
+replay_pid*
+
+# ============================
+# Node / Vue (tikusystem)
+# ============================
+**/node_modules/
+**/dist/
+**/dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ============================
+# IDE
+# ============================
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.iml
+
+# ============================
+# OS
+# ============================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ============================
+# Environment / Secrets
+# ============================
+.env
+.env.*
+!.env.example

@@ -1,0 +1,52 @@
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+  datasource:
+    url: jdbc:mysql://localhost:3306/tiku?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: gking.icu
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+jwt:
+  secret: your-secret-key-at-least-256-bits
+  expiration: 604800  # 7 天（秒）
+
+# 统计类接口 Redis 缓存（首页 /stats、热门题库、最新题目、分类统计）
+app:
+  cache:
+    redis-enabled: true
+    query-enabled: true
+    stats-enabled: true
+    stats-ttl-seconds: 3600
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_CN
+
+dashscope:
+  api-key: ${DASHSCOPE_API_KEY:sk-547aa726dc334bbc9c623a21211f8315}
+  # 纯文本/文件识别使用 qwen3.5-plus（支持关闭深度思考，速度更快）
+  text-model: qwen3.5-plus
+  # 图片识别使用多模态模型
+  vision-model: qwen-vl-plus-latest
+  base-url: https://dashscope.aliyuncs.com/compatible-mode/v1

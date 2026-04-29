@@ -43,7 +43,7 @@ knife4j:
     language: zh_CN
 
 dashscope:
-  api-key: ${DASHSCOPE_API_KEY:sk-547aa726dc334bbc9c623a21211f8315}
+  api-key: ${DASHSCOPE_API_KEY:}
   # 纯文本/文件识别使用 qwen3.5-plus（支持关闭深度思考，速度更快）
   text-model: qwen3.5-plus
   # 图片识别使用多模态模型
